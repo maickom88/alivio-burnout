@@ -16,7 +16,7 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/alivio-burnout/tsconfig.app.json",
         "assets": ["apps/alivio-burnout/src/favicon.ico", "apps/alivio-burnout/src/assets"],
-        "styles": ["apps/alivio-burnout/src/styles.scss"],
+        "styles": ["apps/alivio-burnout/src/styles.scss", "node_modules/bootstrap/dist/css/bootstrap.min.css"],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/alivio-burnout/webpack.config.js"
