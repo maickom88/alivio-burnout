@@ -1,1 +1,16 @@
-<p>button works!</p>
+<button
+  *ngIf="!loading(); else loadingButton"
+  [type]="type"
+  [ngClass]="['btn', 'btn-'.concat(buttonStyle), buttonSize ? 'btn-'.concat(buttonSize) : '']"
+  [disabled]="disabled"
+>
+  {{label}} <img *ngIf="hasSuffix" src="/assets/svgs/arrow-right.svg" />
+</button>
+
+<ng-template #loadingButton>
+  <button [ngClass]="['btn', 'btn-'.concat(buttonStyle), buttonSize ? 'btn-'.concat(buttonSize) : '']"
+    type="button" disabled>
+    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+    <span role="status">{{labelLoading}}</span>
+  </button>
+</ng-template>
