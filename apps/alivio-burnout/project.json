@@ -7,7 +7,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/alivio-burnout",
@@ -15,12 +15,12 @@
         "main": "apps/alivio-burnout/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/alivio-burnout/tsconfig.app.json",
-        "assets": [
-          "apps/alivio-burnout/src/favicon.ico",
-          "apps/alivio-burnout/src/assets"
-        ],
+        "assets": ["apps/alivio-burnout/src/favicon.ico", "apps/alivio-burnout/src/assets"],
         "styles": ["apps/alivio-burnout/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/alivio-burnout/webpack.config.js"
+        }
       },
       "configurations": {
         "production": {
@@ -36,7 +36,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/alivio-burnout/webpack.prod.config.js"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -50,7 +53,11 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:module-federation-dev-server",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
+      },
       "configurations": {
         "production": {
           "browserTarget": "alivio-burnout:build:production"
@@ -71,10 +78,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/alivio-burnout/**/*.ts",
-          "apps/alivio-burnout/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/alivio-burnout/**/*.ts", "apps/alivio-burnout/**/*.html"]
       }
     },
     "test": {
@@ -94,7 +98,8 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "alivio-burnout:build"
+        "buildTarget": "alivio-burnout:build",
+        "port": 4200
       }
     }
   }
