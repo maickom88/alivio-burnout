@@ -1,0 +1,33 @@
+{
+  "name": "alivio-burnout-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/alivio-burnout-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/alivio-burnout-e2e/cypress.config.ts",
+        "devServerTarget": "alivio-burnout:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "alivio-burnout:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "alivio-burnout:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/alivio-burnout-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["alivio-burnout"]
+}
