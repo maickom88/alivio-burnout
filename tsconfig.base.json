@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@alivio-burnout/core": ["libs/core/src/index.ts"],
+      "@alivio-burnout/shared": ["libs/shared/src/index.ts"],
+      "@alivio-burnout/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
