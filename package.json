@@ -2,7 +2,9 @@
   "name": "@alivio-burnout/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "gc": "npx nx g @nx/angular:component $name --project=$project"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
