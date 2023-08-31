@@ -12,10 +12,22 @@ describe('ButtonComponent', () => {
 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
+
+
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should make sure click dispatch event', () => {
+    const spyEvent = jest.spyOn(component.clickEvent, 'emit');
+
+    component.clickEvent.emit();
+    expect(spyEvent).toHaveBeenCalled();
   });
+
+  it('should make sure you have arguments', () => {
+    component.buttonStyle = 'primary';
+    expect(component.buttonStyle).toBeTruthy();
+  });
+
+  
 });
