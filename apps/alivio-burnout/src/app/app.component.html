@@ -1,2 +1,8 @@
-<alivio-burnout-button [hasSuffix]="true" buttonStyle="secondary" label="Iniciar Avaliação"></alivio-burnout-button>
+<alivio-burnout-button
+  [action]="action()"
+  (clickEvent)="testing()"
+  [hasSuffix]="true"
+  buttonStyle="secondary"
+  label="Iniciar Avaliação"
+></alivio-burnout-button>
 <!-- <router-outlet></router-outlet> -->

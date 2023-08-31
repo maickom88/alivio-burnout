@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "gc": "npx nx g @nx/angular:component $name --project=$project"
+    "tests": "npx nx affected -t test",
+    "lint": "npx nx affected -t lint",
+    "e2e": "npx nx affected -t e2e",
+    "all-tests": "npx nx affected -t lint && npx nx affected -t test --ci --code-coverage && npx nx affected -t e2e"
   },
   "private": true,
   "dependencies": {

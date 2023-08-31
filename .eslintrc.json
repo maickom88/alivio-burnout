@@ -25,19 +25,17 @@
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
-        "rules": {
-          "quotes": ["error", "single"],
-          "semi": ["error", "always"],
-          "indent": ["error", 2],
-          "no-unused-vars": "error",
-          "no-console": "warn",
-          "eqeqeq": "error",
-          "max-len": ["error", { "code": 120 }],
-          "no-shadow": "error",
-          "no-empty": "error",
-          "no-multi-spaces": "error",
-          "prefer-const": "error"
-        }
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "indent": ["error", 2],
+        "no-unused-vars": "error",
+        "no-console": "warn",
+        "eqeqeq": "error",
+        "max-len": ["error", { "code": 120 }],
+        "no-shadow": "error",
+        "no-empty": "error",
+        "no-multi-spaces": "error",
+        "prefer-const": "error"
       }
     },
     {
