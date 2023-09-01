@@ -17,10 +17,15 @@ jobs:
           fetch-depth: 0
       - name: ⚙️ Setup NRWL
         uses: nrwl/nx-set-shas@v3
-        with:
-          cache: true
       - name: ⚙️ Run CI
-        run: npm ci
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
 
       - name: 💊 Run Check Format
         run: npx nx format:check
