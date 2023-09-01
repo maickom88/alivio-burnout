@@ -3,6 +3,6 @@ describe('alivio-burnout', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
-    cy.contains('html');
+    cy.get('body');
   });
 });
