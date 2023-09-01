@@ -1,17 +1,13 @@
-
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { inputAnimation } from '../animations/animation-function';
 import { ButtonStyle, ButtonType, ButtonSize } from './button-constants';
-
 
 @Component({
   selector: 'alivio-burnout-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    inputAnimation({nameTag: 'InputAnimation', animationDirection: 'zoom'}),
-  ]
+  animations: [inputAnimation({ nameTag: 'InputAnimation', animationDirection: 'zoom' })],
 })
 export class ButtonComponent {
   @Input({ required: true }) label!: string;
@@ -24,6 +20,3 @@ export class ButtonComponent {
   @Output() clickEvent = new EventEmitter<void>();
   loading = signal(false);
 }
-
-
-

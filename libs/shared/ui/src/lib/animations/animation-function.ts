@@ -2,7 +2,6 @@ import { AnimationTriggerMetadata, trigger, state, style } from '@angular/animat
 import { enterAnimation } from './enter-animation';
 import { AnimationConfig } from './animations-constants';
 
-
 export const inputAnimation = ({
   nameTag,
   animationDirection = 'left',
@@ -10,14 +9,9 @@ export const inputAnimation = ({
   customStyle = {},
   withOpacity = true,
 }: AnimationConfig): AnimationTriggerMetadata => {
-  
-  const transform = animationDirection === 'zoom'? 'scale(1)' : 'translateX(0), translateY(0)';
+  const transform = animationDirection === 'zoom' ? 'scale(1)' : 'translateX(0), translateY(0)';
   return trigger(nameTag, [
     state('animateTo', style({ transform: transform, ...customStyle })),
-    enterAnimation(
-      animationDirection,
-      durationEnter,
-      withOpacity),
+    enterAnimation(animationDirection, durationEnter, withOpacity),
   ]);
 };
-  
