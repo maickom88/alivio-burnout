@@ -3,11 +3,12 @@
   [type]="type"
   [ngClass]="['btn', 'btn-'.concat(buttonStyle), buttonSize ? 'btn-'.concat(buttonSize) : '']"
   [disabled]="disabled"
-  [@EnterLeave]="'flyIn'"
+  @InputAnimation
   (click)="clickEvent.emit()"
 >
   {{ label }} <img *ngIf="hasSuffix" src="/assets/svgs/arrow-right.svg" />
 </button>
+
 
 <ng-template #loadingButton>
   <button
