@@ -10,7 +10,7 @@ export interface AnimationConfig {
   durationEnter?: string;
   customStyle?: CSStypeObject;
   withOpacity?: boolean;
-  delay?: string,
+  delay?: string;
 }
 
 export const ANIMATION_MAP: Record<TypeAnimation, string> = {
@@ -18,6 +18,5 @@ export const ANIMATION_MAP: Record<TypeAnimation, string> = {
   right: 'translateX(+100%)',
   bottom: 'translateY(+100%)',
   left: 'translateX(-100%)',
-  zoom: 'scale(0.6)'
+  zoom: 'scale(0.6)',
 };
-

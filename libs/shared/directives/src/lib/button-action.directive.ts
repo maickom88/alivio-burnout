@@ -8,24 +8,21 @@ import { Observable, finalize, of, switchMap, tap } from 'rxjs';
   selector: 'alivio-burnout-button [action]',
   standalone: true,
 })
-export class ButtonActionDirective{
+export class ButtonActionDirective {
   readonly host = inject(ButtonComponent);
   readonly destroyRef = inject(DestroyRef);
 
-
-
-  @Input() set action (value$: Observable<unknown> | null){
+  @Input() set action(value$: Observable<unknown> | null) {
     if (value$) {
       of(null)
         .pipe(
           takeUntilDestroyed(this.destroyRef),
           tap(() => this.host.loading.set(true)),
           switchMap(() => value$),
-          finalize(() => this.host.loading.set(false)),
-          
+          finalize(() => this.host.loading.set(false))
         )
         // eslint-disable-next-line no-console
-        .subscribe((value)=>console.log('ok', value));
+        .subscribe((value) => console.log('ok', value));
     }
   }
 }

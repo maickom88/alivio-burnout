@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [CommonModule, BrowserAnimationsModule],
   declarations: [ButtonComponent],
-  exports: [ButtonComponent]
+  exports: [ButtonComponent],
 })
 export class SharedUiModule {
   static forRoot(): ModuleWithProviders<SharedUiModule> {

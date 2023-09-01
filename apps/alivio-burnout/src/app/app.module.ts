@@ -19,4 +19,4 @@ import { ButtonActionDirective } from '@alivio-burnout/shared/directives';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
