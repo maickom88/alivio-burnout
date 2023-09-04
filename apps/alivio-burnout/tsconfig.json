@@ -4,13 +4,17 @@
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
   "files": [],
-  "include": [],
+  "include": [
+    "./src/assets/json/content-carousel.json"
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"
