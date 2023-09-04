@@ -1,5 +1,7 @@
+import { SwiperData } from '@alivio-burnout/shared/ui';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import contentCarouselJSON from '../assets/json/content-carousel.json';
 
 import { delay } from 'rxjs/operators';
 
@@ -11,6 +13,7 @@ import { delay } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'alivio-burnout';
+  data: Array<SwiperData> = contentCarouselJSON;
 
   readonly action = signal<Observable<unknown> | null>(null);
 

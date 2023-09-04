@@ -18,5 +18,5 @@ export class ButtonComponent {
   @Input() buttonSize?: ButtonSize;
   @Input() disabled = false;
   @Output() clickEvent = new EventEmitter<void>();
-  loading = signal(false);
+  readonly loading = signal(false);
 }

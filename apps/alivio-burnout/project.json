@@ -24,8 +24,12 @@
             "output": "assets"
           }
         ],
-        "styles": ["apps/alivio-burnout/src/styles.scss", "node_modules/bootstrap/dist/css/bootstrap.min.css"],
-        "scripts": [],
+        "styles": [
+          "apps/alivio-burnout/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "node_modules/swiper/swiper.min.css"
+        ],
+        "scripts": ["node_modules/swiper/swiper.min.js"],
         "customWebpackConfig": {
           "path": "apps/alivio-burnout/webpack.config.js"
         }

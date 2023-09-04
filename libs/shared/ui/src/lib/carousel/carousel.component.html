@@ -1,0 +1,24 @@
+<div class="container d-flex flex-column justify-content-center overflow-hidden gap-5">
+  <article @AnimationText *ngIf="loadAnimation()">
+    <h1>{{ swiperHeader()?.title }}</h1>
+    <p>{{ swiperHeader()?.subtitle }}</p>
+  </article>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div *ngFor="let img of data" class="swiper-slide">
+        <img
+          [style]="{ backgroundColor: img.backgroundColor }"
+          width="330"
+          height="330"
+          class="shadow-sm rounded-circle"
+          [src]="img.src"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="dots align-self-start">
+    <div *ngFor="let _ of data; let index = index" class="dot" [class.active]="index === currentIndex()"></div>
+  </div>
+</div>
