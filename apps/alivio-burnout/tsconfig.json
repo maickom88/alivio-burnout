@@ -12,9 +12,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "files": [],
-  "include": [
-    "./src/assets/json/content-carousel.json"
-  ],
+  "include": ["./src/assets/json/content-carousel.json"],
   "references": [
     {
       "path": "./tsconfig.app.json"

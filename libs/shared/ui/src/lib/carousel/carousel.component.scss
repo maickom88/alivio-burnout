@@ -10,7 +10,7 @@
     }
   }
 
-  img{
+  img {
     object-fit: cover;
   }
 }
@@ -26,7 +26,7 @@
   }
   .dot.active {
     width: 3.3rem;
-    transition:  width 200ms linear;
+    transition: width 200ms linear;
     background-color: #3a3a3a;
   }
 }

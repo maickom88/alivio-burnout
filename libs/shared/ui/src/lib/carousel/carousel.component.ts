@@ -5,16 +5,16 @@ import { delay, tap } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
 export interface SwiperData {
-  title: string,
-  subtitle: string,
-  src: string,
-  alt?: string,
-  backgroundColor: string,
+  title: string;
+  subtitle: string;
+  src: string;
+  alt?: string;
+  backgroundColor: string;
 }
 
 interface SwiperHeader {
-  title: string,
-  subtitle: string,
+  title: string;
+  subtitle: string;
 }
 
 @Component({
@@ -22,19 +22,15 @@ interface SwiperHeader {
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    inputAnimation({ nameTag: 'AnimationText', animationDirection: 'zoom' })
-  ]
+  animations: [inputAnimation({ nameTag: 'AnimationText', animationDirection: 'zoom' })],
 })
 export class CarouselComponent implements OnInit {
-
   readonly currentIndex = signal<number | undefined>(0);
   readonly swiperHeader = signal<SwiperHeader | undefined>(undefined);
   readonly loadAnimation = signal<boolean>(false);
 
   swiper: Swiper | undefined;
   @Input({ required: true }) data: ReadonlyArray<SwiperData> = [];
-
 
   constructor() {
     this.observableAnimation();
@@ -46,16 +42,16 @@ export class CarouselComponent implements OnInit {
     this.initSwiperHeaderAndAnimation();
   }
 
-
-
   private observableAnimation(): void {
     const $observable = toObservable(this.currentIndex);
-    $observable.pipe(
-      takeUntilDestroyed(),
-      tap(() => this.loadAnimation.set(false)),
-      delay(0),
-      tap(() => this.loadAnimation.set(true))
-    ).subscribe();
+    $observable
+      .pipe(
+        takeUntilDestroyed(),
+        tap(() => this.loadAnimation.set(false)),
+        delay(0),
+        tap(() => this.loadAnimation.set(true))
+      )
+      .subscribe();
   }
 
   private initSwiperHeaderAndAnimation(): void {
@@ -83,5 +79,4 @@ export class CarouselComponent implements OnInit {
       }
     });
   }
-
 }
